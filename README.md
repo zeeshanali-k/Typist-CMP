@@ -2,6 +2,7 @@
 
 # Typist
 A Compose Multiplatform Text Typing Animation Library for Android and iOS.
+Visit <a href="https://github.com/zeeshanali-k/Typist">this link</a> to checkout Typist for Jetpack Compose.
 
 <img src="/images/ios.gif">
 <img src="/images/android.gif">
