@@ -3,7 +3,8 @@
 # Typist
 A Compose Multiplatform Text Typing Animation Library for Android and iOS.
 
-<img src="/media/typist.gif">
+<img src="/images/ios.gif">
+<img src="/images/android.gif">
 
 ## Usage
 <p>Add this to your project level "build.gradle" or in newer versions of gradle in "settings.gradle" under repositories section:</p>
