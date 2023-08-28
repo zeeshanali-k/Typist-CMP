@@ -16,11 +16,9 @@ import com.devscion.typistcmp.Typist
 @Composable
 fun App() {
     MaterialTheme {
-        var greetingText by remember { mutableStateOf("Hello, World!") }
+        val greetingText = remember { "Typist is typing on ${getPlatformName()}" }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-            OutlinedButton(onClick = {
-                greetingText = getPlatformName()
-            }) {
+            OutlinedButton(onClick = {}) {
                 Typist(greetingText)
             }
         }
