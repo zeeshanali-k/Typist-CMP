@@ -5,6 +5,11 @@ include(":shared")
 
 pluginManagement {
     repositories {
+        google {
+            mavenContent {
+                releasesOnly()
+            }
+        }
         gradlePluginPortal()
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
         google()
@@ -33,3 +38,5 @@ dependencyResolutionManagement {
         maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
+
+include(":TypistCMP")
