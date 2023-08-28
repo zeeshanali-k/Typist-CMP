@@ -6,7 +6,13 @@ plugins {
 }
 
 kotlin {
-    androidTarget()
+    androidTarget {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+        }
+    }
 
     iosX64()
     iosArm64()
@@ -19,7 +25,7 @@ kotlin {
         ios.deploymentTarget = "14.1"
         podfile = project.file("../iosApp/Podfile")
         framework {
-            baseName = "shared"
+            baseName = "sample"
             isStatic = true
 
 //            export(project(":TypistCMP"))
@@ -32,7 +38,10 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material3)
-                api(project(":TypistCMP"))
+
+                implementation("org.jetbrains.kotlinx:atomicfu:0.20.2")
+//                api(project(":TypistCMP"))
+                api("tech.dev-scion:typist-cmp:1.0.0")
             }
         }
         val androidMain by getting {
@@ -60,13 +69,14 @@ android {
 
     defaultConfig {
         minSdk = (findProperty("android.minSdk") as String).toInt()
-        targetSdk = (findProperty("android.targetSdk") as String).toInt()
+//        targetSdk = (findProperty("android.targetSdk") as String).toInt()
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlin {
-        jvmToolchain(11)
-    }
+
+//    compileOptions {
+//        sourceCompatibility = JavaVersion.VERSION_11
+//        targetCompatibility = JavaVersion.VERSION_11
+//    }
+//    kotlin {
+//        jvmToolchain(11)
+//    }
 }

@@ -35,6 +35,8 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.foundation)
                 implementation(compose.material3)
+
+                implementation("org.jetbrains.kotlinx:atomicfu:0.20.2")
             }
         }
         val commonTest by getting {

@@ -9,8 +9,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.devscion.typistcmp.Greeting
 import com.devscion.typistcmp.Typist
+
 
 
 @Composable
@@ -19,10 +19,12 @@ fun App() {
         var greetingText by remember { mutableStateOf("Hello, World!") }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             OutlinedButton(onClick = {
-                greetingText = Greeting().greet()
+                greetingText = getPlatformName()
             }) {
                 Typist(greetingText)
             }
         }
     }
 }
+
+expect fun getPlatformName(): String
