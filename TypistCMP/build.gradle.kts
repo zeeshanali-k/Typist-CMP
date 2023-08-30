@@ -58,7 +58,7 @@ task("printVersionName") {
 
 android {
     namespace = "com.devscion.typistcmp"
-    compileSdk = 33
+    compileSdk = 34
     defaultConfig {
         minSdk = 24
     }
