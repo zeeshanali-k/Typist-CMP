@@ -7,6 +7,10 @@ Visit <a href="https://github.com/zeeshanali-k/Typist">this link</a> to checkout
 <img src="/images/ios.gif">
 <img src="/images/android.gif">
 
+<h3><b>Pass multiple strings and infinite repititions option</b></h3>
+
+<img src="/images/ezgif-5-b8884a1d1c.gif">
+
 ## Usage
 <p>Add this to your project level "build.gradle" or in newer versions of gradle in "settings.gradle" under repositories section:</p>
 
