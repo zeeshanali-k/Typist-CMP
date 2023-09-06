@@ -4,8 +4,12 @@
 A Compose Multiplatform Text Typing Animation Library for Android and iOS.
 Visit <a href="https://github.com/zeeshanali-k/Typist">this link</a> to checkout Typist for Jetpack Compose.
 
-<img src="/images/ios.gif">
-<img src="/images/android.gif">
+<img src="/images/ios.gif" height="200px">
+<img src="/images/android.gif" height="200px">
+
+<h3><b>Pass multiple strings and infinite repititions option</b></h3>
+
+<img src="/images/ezgif-5-b8884a1d1c.gif" height="300px">
 
 ## Usage
 <p>Add this to your project level "build.gradle" or in newer versions of gradle in "settings.gradle" under repositories section:</p>
@@ -43,3 +47,6 @@ onAnimationEnd = {},
 onAnimationStart = {}
 )
 ```
+
+
+<a href="https://www.buymeacoffee.com/devscion"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=ZeeshanAli&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
