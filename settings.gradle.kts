@@ -1,6 +1,7 @@
 rootProject.name = "MyApplication"
 
 include(":androidApp")
+include(":desktop")
 include(":sample")
 
 pluginManagement {

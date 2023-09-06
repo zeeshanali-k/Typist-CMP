@@ -1,4 +1,4 @@
-package com.myapplication
+package com.devscion
 
 import MainView
 import android.os.Bundle

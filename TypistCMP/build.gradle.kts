@@ -9,12 +9,20 @@ plugins {
 kotlin {
     targetHierarchy.default()
 
+
     androidTarget {
         publishLibraryVariants("release")
         compilations.all {
             kotlinOptions {
                 jvmTarget = "1.8"
             }
+        }
+    }
+
+
+    jvm("desktop"){
+        compilations.all {
+            kotlinOptions.jvmTarget = "17"
         }
     }
 
@@ -29,6 +37,7 @@ kotlin {
     }
 
     sourceSets {
+
         val commonMain by getting {
             dependencies {
                 //put your multiplatform dependencies here
@@ -44,16 +53,7 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-//        val androidMain by getting {
-//            dependencies {
-//                api("androidx.activity:activity-compose:1.6.1")
-//            }
-//        }
     }
-}
-
-task("printVersionName") {
-    println(System.getProperty("VERSION_NAME"))
 }
 
 android {
