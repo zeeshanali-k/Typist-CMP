@@ -46,8 +46,8 @@ kotlin {
                 implementation(compose.material3)
 
                 implementation("org.jetbrains.kotlinx:atomicfu:0.20.2")
-                api(project(":TypistCMP"))
-//                api("tech.dev-scion:typist-cmp:1.1.0")
+//                api(project(":TypistCMP"))
+                api("tech.dev-scion:typist-cmp:1.1.2")
             }
         }
         val androidMain by getting {
