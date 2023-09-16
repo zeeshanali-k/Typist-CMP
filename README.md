@@ -1,6 +1,6 @@
 [![Maven Central](https://img.shields.io/maven-central/v/tech.dev-scion/typist-cmp.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22tech.dev-scion%22%20AND%20a:%22typist-cmp%22)
 
-# Typist
+# Typist-CMP
 A Compose Multiplatform Text Typing Animation Library for Android, iOS and Desktop.
 Visit <a href="https://github.com/zeeshanali-k/Typist">this link</a> to checkout Typist for Jetpack Compose.
 
