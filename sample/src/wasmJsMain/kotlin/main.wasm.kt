@@ -6,4 +6,4 @@ fun main() {
     CanvasBasedWindow(canvasElementId = "ComposeTarget") { App() }
 }
 
-actual fun getPlatformName(): String = "WASM"
+actual fun getPlatformName(): String = "Kotlin/WASM Web App"
