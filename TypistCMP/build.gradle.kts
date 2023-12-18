@@ -19,6 +19,12 @@ kotlin {
         }
     }
 
+    @OptIn(org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl::class)
+    wasmJs {
+//        moduleName = "composeApp"
+        browser()
+        binaries.executable()
+    }
 
     jvm("desktop"){
         compilations.all {
@@ -45,7 +51,7 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.material3)
 
-                implementation("org.jetbrains.kotlinx:atomicfu:0.20.2")
+                implementation("org.jetbrains.kotlinx:atomicfu:0.23.1")
             }
         }
         val commonTest by getting {
@@ -62,4 +68,8 @@ android {
     defaultConfig {
         minSdk = 24
     }
+}
+
+compose.experimental {
+    web.application {}
 }

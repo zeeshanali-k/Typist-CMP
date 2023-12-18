@@ -37,6 +37,16 @@ kotlin {
         }
     }
 
+    @OptIn(org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl::class)
+    wasmJs {
+        moduleName = "sample"
+        browser {
+            commonWebpackConfig {
+                outputFileName = "sample.js"
+            }
+        }
+        binaries.executable()
+    }
     sourceSets {
 
         val commonMain by getting {
@@ -45,16 +55,16 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.material3)
 
-                implementation("org.jetbrains.kotlinx:atomicfu:0.20.2")
-//                api(project(":TypistCMP"))
-                api("tech.dev-scion:typist-cmp:1.1.2")
+                implementation("org.jetbrains.kotlinx:atomicfu:0.23.1")
+                api(project(":TypistCMP"))
+//                api("tech.dev-scion:typist-cmp:1.1.2")
             }
         }
         val androidMain by getting {
             dependencies {
-                api("androidx.activity:activity-compose:1.7.2")
+                api("androidx.activity:activity-compose:1.8.2")
                 api("androidx.appcompat:appcompat:1.6.1")
-                api("androidx.core:core-ktx:1.10.1")
+                api("androidx.core:core-ktx:1.12.0")
             }
         }
         val iosX64Main by getting
@@ -92,4 +102,9 @@ android {
         minSdk = (findProperty("android.minSdk") as String).toInt()
     }
 
+}
+
+
+compose.experimental {
+    web.application {}
 }
