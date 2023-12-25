@@ -40,8 +40,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN_RELEASE }}
         with:
-          tag_name: 1.0.0
-          release_name: "Classy"
+          tag_name: 1.0.1
+          release_name: "Typist"
           draft: false
           prerelease: false
           
