@@ -11,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.devscion.typistcmp.Typist
 
-
 @Composable
 fun App() {
     MaterialTheme {
@@ -26,7 +25,10 @@ fun App() {
             }
             Spacer(Modifier.height(15.dp))
             OutlinedButton(onClick = {}) {
-                Typist(listOf(greetingText, "I just typed on ${getPlatformName()}"))
+                Typist(
+                    listOf(greetingText, "I just typed on ${getPlatformName()}"),
+                    typingDelay = 500L
+                )
             }
             Spacer(Modifier.height(15.dp))
             OutlinedButton(onClick = {}) {
@@ -34,6 +36,7 @@ fun App() {
                     listOf(
                         greetingText, "I just typed on ${getPlatformName()}",
                     ),
+                    typingDelay = 500L,
                     isInfinite = true
                 )
             }

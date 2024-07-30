@@ -22,18 +22,19 @@ fun Typist(
     onAnimationStart: (() -> Unit)? = null,
 ) {
     TypistImpl(
-        listOf(text),
-        modifier,
-        textStyle,
-        cursorColor,
-        typistSpeed,
-        isInfiniteCursor,
-        isBlinkingCursor,
-        isCursorVisible,
-        isInfinite,
-        cursorSymbol,
-        onAnimationEnd,
-        onAnimationStart,
+        textList = listOf(text),
+        typingDelay = 100L,
+        modifier = modifier,
+        textStyle = textStyle,
+        cursorColor = cursorColor,
+        typistSpeed = typistSpeed,
+        isInfiniteCursor = isInfiniteCursor,
+        isBlinkingCursor = isBlinkingCursor,
+        isCursorVisible = isCursorVisible,
+        isInfinite = isInfinite,
+        cursorSymbol = cursorSymbol,
+        onAnimationEnd = onAnimationEnd,
+        onAnimationStart = onAnimationStart,
     )
 }
 
@@ -41,6 +42,7 @@ fun Typist(
 @Composable
 fun Typist(
     textList: List<String>,
+    typingDelay: Long = 100L,
     modifier: Modifier = Modifier,
     textStyle: TextStyle = TextStyle(),
     cursorColor: Color = Color.Black,
@@ -53,21 +55,22 @@ fun Typist(
     onAnimationEnd: (() -> Unit)? = null,
     onAnimationStart: (() -> Unit)? = null,
 ) {
-    if (textList.isEmpty()){
+    if (textList.isEmpty()) {
         throw IndexOutOfBoundsException()
     }
     TypistImpl(
-        textList,
-        modifier,
-        textStyle,
-        cursorColor,
-        typistSpeed,
-        isInfiniteCursor,
-        isBlinkingCursor,
-        isCursorVisible,
-        isInfinite,
-        cursorSymbol,
-        onAnimationEnd,
-        onAnimationStart,
+        textList = textList,
+        typingDelay = typingDelay,
+        modifier = modifier,
+        textStyle = textStyle,
+        cursorColor = cursorColor,
+        typistSpeed = typistSpeed,
+        isInfiniteCursor = isInfiniteCursor,
+        isBlinkingCursor = isBlinkingCursor,
+        isCursorVisible = isCursorVisible,
+        isInfinite = isInfinite,
+        cursorSymbol = cursorSymbol,
+        onAnimationEnd = onAnimationEnd,
+        onAnimationStart = onAnimationStart,
     )
 }

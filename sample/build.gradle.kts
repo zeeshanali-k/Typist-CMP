@@ -1,20 +1,20 @@
 plugins {
-    kotlin("multiplatform")
     kotlin("native.cocoapods")
-    id("com.android.library")
-    id("org.jetbrains.compose")
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.jetbrainsCompose)
 }
 
 kotlin {
     androidTarget {
         compilations.all {
             kotlinOptions {
-                jvmTarget = "1.8"
+                jvmTarget = "17"
             }
         }
     }
 
-    jvm("desktop"){
+    jvm("desktop") {
         compilations.all {
             kotlinOptions.jvmTarget = "17"
         }
@@ -49,29 +49,27 @@ kotlin {
     }
     sourceSets {
 
-        val commonMain by getting {
-            dependencies {
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material3)
+        commonMain.dependencies {
+            implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material3)
 
-                implementation("org.jetbrains.kotlinx:atomicfu:0.23.1")
-                api(project(":TypistCMP"))
+            implementation("org.jetbrains.kotlinx:atomicfu:0.23.1")
+            api(project(":TypistCMP"))
 //                api("tech.dev-scion:typist-cmp:1.1.2")
-            }
         }
-        val androidMain by getting {
+        androidMain {
+            dependsOn(commonMain.get())
             dependencies {
-                api("androidx.activity:activity-compose:1.8.2")
-                api("androidx.appcompat:appcompat:1.6.1")
-                api("androidx.core:core-ktx:1.12.0")
+
+                implementation(libs.androidx.activity.compose)
             }
         }
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
+        iosMain {
+            dependsOn(commonMain.get())
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
@@ -80,13 +78,14 @@ kotlin {
 }
 
 compose.desktop {
-    // 2
     application {
-        // 3
         mainClass = "MainKt"
-        // 4
         nativeDistributions {
-            targetFormats(org.jetbrains.compose.desktop.application.dsl.TargetFormat.Dmg, org.jetbrains.compose.desktop.application.dsl.TargetFormat.Msi, org.jetbrains.compose.desktop.application.dsl.TargetFormat.Deb)
+            targetFormats(
+                org.jetbrains.compose.desktop.application.dsl.TargetFormat.Dmg,
+                org.jetbrains.compose.desktop.application.dsl.TargetFormat.Msi,
+                org.jetbrains.compose.desktop.application.dsl.TargetFormat.Deb
+            )
             packageName = "Typist-CMP"
             macOS {
                 bundleID = "com.devscion.typistcmp"
@@ -94,14 +93,34 @@ compose.desktop {
         }
     }
 }
+
 android {
     compileSdk = (findProperty("android.compileSdk") as String).toInt()
     namespace = "com.devscion.typistcmp"
 
+
+    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+    sourceSets["main"].res.srcDirs("src/androidMain/res")
+
     defaultConfig {
+        applicationId = "com.devscion.typistcmp"
         minSdk = (findProperty("android.minSdk") as String).toInt()
+        targetSdk = (findProperty("android.targetSdk") as String).toInt()
+        versionCode = 1
+        versionName = "1.0"
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    kotlin {
+        jvmToolchain(17)
     }
 
+    dependencies {
+        implementation("androidx.core:core:1.13.1")
+        implementation("androidx.compose.material3:material3:1.2.1")
+    }
 }
 
 
