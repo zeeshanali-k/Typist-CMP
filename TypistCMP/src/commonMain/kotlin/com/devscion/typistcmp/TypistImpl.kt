@@ -22,6 +22,7 @@ import kotlin.random.Random
 @Composable
 internal fun TypistImpl(
     textList: List<String>,
+    typingDelay: Long = 100L,
     modifier: Modifier = Modifier,
     textStyle: TextStyle = TextStyle(),
     cursorColor: Color = Color.Black,
@@ -63,6 +64,7 @@ internal fun TypistImpl(
                 .removePrefix("${remainingText.value.first()}")
             delay(typistSpeed.value)
         }
+        delay(typingDelay)
         if (remainingText.value.isEmpty()) {
             onAnimationEnd?.invoke()
         }
